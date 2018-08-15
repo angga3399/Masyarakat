@@ -13,7 +13,7 @@ import java.util.List;
 import unikom.skripsi.angga.masyarakat.R;
 import unikom.skripsi.angga.masyarakat.model.HistoryModel;
 
-public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>{
+public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder> {
     private Context context;
     private List<HistoryModel> list;
     private HistoryAdapter.Listener listener;
@@ -52,6 +52,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         private TextView textViewMessage;
         private TextView textViewPos;
         private TextView textViewNama;
+
         public HistoryViewHolder(View itemView) {
             super(itemView);
             textViewPos = itemView.findViewById(R.id.row_pos);
@@ -64,18 +65,19 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
 
         @Override
         public void onClick(View v) {
-            listener.clickItem(list.get(getAdapterPosition()).getTitle(),list.get(getAdapterPosition()).getMessage(),
-                    list.get(getAdapterPosition()).getTimestamp(), list.get(getAdapterPosition()).getImage_name(),
+            listener.clickItem(list.get(getAdapterPosition()).getTitle(),
+                    list.get(getAdapterPosition()).getTimestamp(), list.get(getAdapterPosition()).getMessage(),
+                    list.get(getAdapterPosition()).getImage_name(),
                     list.get(getAdapterPosition()).getLat(), list.get(getAdapterPosition()).getLng());
         }
     }
 
-    public void replaceData(List<HistoryModel> list){
+    public void replaceData(List<HistoryModel> list) {
         this.list = list;
         notifyDataSetChanged();
     }
 
-    public interface Listener{
+    public interface Listener {
         void clickItem(String title, String timestamp, String message, String image, String lat, String lng);
     }
 

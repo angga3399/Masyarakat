@@ -17,6 +17,8 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -61,6 +63,7 @@ public class ShowNotificationActivity extends AppCompatActivity implements Googl
     private static Context context;
     private RecyclerView recyclerView;
     private ShowNotificationAdapter adapter;
+    private Toolbar toolbar;
 
     private Location lastLocation;
     private FusedLocationProviderClient fusedLocationProviderClient;
@@ -78,6 +81,13 @@ public class ShowNotificationActivity extends AppCompatActivity implements Googl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_notification);
         ShowNotificationActivity.context = getApplicationContext();
+
+        toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Detail Banjir");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         final ProgressBar progress = findViewById(R.id.loadingProgress);
         final TextView txtProgress = findViewById(R.id.loadingText);
@@ -347,5 +357,15 @@ public class ShowNotificationActivity extends AppCompatActivity implements Googl
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

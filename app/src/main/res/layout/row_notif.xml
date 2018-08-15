@@ -2,22 +2,23 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <TextView
         android:id="@+id/row_pos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="16sp"
-        android:text="Lapangan"/>
+        android:fontFamily="sans-serif"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/row_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_red_light"/>
 
     <TextView
         android:id="@+id/row_tanggal"

@@ -11,4 +11,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="oke">OKE</string>
+    <string name="banjir_sungai">Banjir Sungai</string>
+    <string name="status">Status</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="tempat_pengungsian">Tempat Pengungsian</string>
 </resources>
