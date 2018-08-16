@@ -4,6 +4,8 @@ import java.util.List;
 
 public class SungaiModel{
     private String sungai;
+    private String tanggal;
+    private String jam;
     private String tma;
 
     public String getSungai() {
@@ -20,6 +22,22 @@ public class SungaiModel{
 
     public void setTma(String tma) {
         this.tma = tma;
+    }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
+    }
+
+    public String getJam() {
+        return jam;
+    }
+
+    public void setJam(String jam) {
+        this.jam = jam;
     }
 
     public class SungaiDataModel{
