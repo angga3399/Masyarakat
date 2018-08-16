@@ -39,6 +39,8 @@ public class SungaiAdapter extends RecyclerView.Adapter<SungaiAdapter.SungaiView
         SungaiModel model = listTemp.get(position);
         holder.textViewSungai.setText(model.getSungai());
         holder.textViewTma.setText(model.getTma());
+        holder.textViewTanggal.setText(model.getTanggal());
+        holder.textViewJam.setText(model.getJam());
     }
 
     @Override
@@ -80,10 +82,14 @@ public class SungaiAdapter extends RecyclerView.Adapter<SungaiAdapter.SungaiView
     public class SungaiViewHolder extends RecyclerView.ViewHolder {
         private TextView textViewSungai;
         private TextView textViewTma;
+        private TextView textViewTanggal;
+        private TextView textViewJam;
         public SungaiViewHolder(View itemView) {
             super(itemView);
-            textViewSungai = itemView.findViewById(R.id.row_sungai_nama);
-            textViewTma = itemView.findViewById(R.id.row_sungai_tma);
+            textViewSungai  = itemView.findViewById(R.id.row_sungai_nama);
+            textViewTma     = itemView.findViewById(R.id.row_sungai_tma);
+            textViewTanggal = itemView.findViewById(R.id.row_sungai_tanggal);
+            textViewJam     = itemView.findViewById(R.id.row_sungai_Jam);
         }
     }
 
