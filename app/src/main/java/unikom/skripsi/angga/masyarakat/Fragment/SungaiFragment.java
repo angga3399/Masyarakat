@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -63,13 +64,17 @@ public class SungaiFragment extends Fragment {
             @Override
             public void onResponse(retrofit2.Call<SungaiModel.SungaiDataModel> call, Response<SungaiModel.SungaiDataModel> response) {
                 if (response.isSuccessful()) {
-                    sungaiAdapter.replaceData(response.body().getResults());
+                    if(response.body().getResults() != null) {
+                        sungaiAdapter.replaceData(response.body().getResults());
+                    }else{
+                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
             @Override
             public void onFailure(retrofit2.Call<SungaiModel.SungaiDataModel> call, Throwable t) {
-
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
