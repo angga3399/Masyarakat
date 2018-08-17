@@ -13,6 +13,7 @@ import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -65,14 +66,18 @@ public class HistoryFragment extends Fragment implements HistoryAdapter.Listener
             @Override
             public void onResponse(retrofit2.Call<HistoryModel.HistoryDataModel> call, Response<HistoryModel.HistoryDataModel> response) {
                 if (response.isSuccessful()){
-                    historyAdapter.replaceData(response.body().getResults());
-                    recyclerView.scrollToPosition(response.body().getResults().size()-1);
+                    if(response.body().getResults() != null) {
+                        historyAdapter.replaceData(response.body().getResults());
+                        recyclerView.scrollToPosition(response.body().getResults().size() - 1);
+                    }else{
+                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
             @Override
             public void onFailure(retrofit2.Call<HistoryModel.HistoryDataModel> call, Throwable t) {
-
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
